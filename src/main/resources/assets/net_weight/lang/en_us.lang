@@ -1,0 +1,9 @@
+#PARSE_ESCAPES
+
+#Blocks
+
+#Items
+
+#Misc
+config.net_weight.general.title=General
+tooltip.net_weight.weight=%sg
