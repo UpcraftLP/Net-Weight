@@ -40,5 +40,6 @@ public class NetWeight {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         if(Loader.isModLoaded("glasspane")) ModUpdateHandler.registerMod(MODID);
+        FishStats.registerStats();
     }
 }

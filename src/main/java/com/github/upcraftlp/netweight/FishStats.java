@@ -7,8 +7,16 @@ import net.minecraftforge.fml.relauncher.*;
 
 public class FishStats {
 
-    public static final StatBase HEAVIEST_FISH = new StatBasic("stat.net_weight.heaviestFishCaught", new TextComponentTranslation("stat.net_weight.heaviestFishCaught"), Type.WEIGHT).registerStat();
-    public static final StatBase TOTAL_FISH_WEIGHT = new StatBasic("stat.net_weight.totalFishWeight", new TextComponentTranslation("stat.net_weight.totalFishWeight"), Type.WEIGHT).registerStat();
+    public static final StatBase HEAVIEST_FISH_CAUGHT = new StatBasic("stat.net_weight.heaviestFishCaught", new TextComponentTranslation("stat.net_weight.heaviestFishCaught"), Type.WEIGHT);
+    public static final StatBase TOTAL_FISH_WEIGHT = new StatBasic("stat.net_weight.totalFishWeight", new TextComponentTranslation("stat.net_weight.totalFishWeight"), Type.WEIGHT);
+
+    /**
+     * register all stats so that the StatManager is aware of them
+     */
+    public static void registerStats() {
+        HEAVIEST_FISH_CAUGHT.registerStat();
+        TOTAL_FISH_WEIGHT.registerStat();
+    }
 
     public static class Type {
 
