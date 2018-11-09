@@ -246,7 +246,7 @@ artifacts {
 
 def curseRelations = {
     //requiredDependency '' //add curseforge-slug here
-    requiredDependency 'glasspane'
+    optionalDependency 'glasspane'
 }
 
 
@@ -268,9 +268,9 @@ curseforge {
             //addArtifact apiJar
 
             //cursegradle will automatically determine the current version
-            //addGameVersion '1.12'
-            //addGameVersion '1.12.1'
-            //addGameVersion '1.12.2'
+            addGameVersion '1.12'
+            addGameVersion '1.12.1'
+            addGameVersion '1.12.2'
 
             mainArtifact(jar) {
                 displayName = "${project.mod_name} v${project.mod_version} MC${project.mc_version}"
