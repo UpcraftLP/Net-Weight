@@ -1,8 +1,7 @@
 package com.github.upcraftlp.netweight.client;
 
-import com.github.upcraftlp.netweight.NetWeight;
+import com.github.upcraftlp.netweight.*;
 import com.github.upcraftlp.netweight.handler.FishHandler;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
@@ -18,8 +17,8 @@ public class TooltipHandler {
     public static void onRenderTooltip(ItemTooltipEvent event) {
         if(!event.getItemStack().isEmpty() && event.getItemStack().hasTagCompound()) {
             NBTTagCompound nbt = event.getItemStack().getTagCompound();
-            if(nbt.hasKey(FishHandler.KEY_FISH_WEIGHT, Constants.NBT.TAG_SHORT)) {
-                event.getToolTip().add(I18n.format("tooltip.net_weight.weight", nbt.getShort(FishHandler.KEY_FISH_WEIGHT)));
+            if(nbt.hasKey(FishHandler.KEY_FISH_WEIGHT, Constants.NBT.TAG_INT)) {
+                event.getToolTip().add(FishStats.Type.WEIGHT.format(nbt.getInteger(FishHandler.KEY_FISH_WEIGHT)));
             }
         }
     }
