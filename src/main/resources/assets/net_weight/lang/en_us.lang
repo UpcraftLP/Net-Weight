@@ -10,6 +10,8 @@ tooltip.net_weight.weight_grams=%s g
 tooltip.net_weight.weight_kilos=%.2f kg
 tooltip.net_weight.weight_tons=%.2f t
 
+toast.net_weight.newTopWeight=New Top Weight!
+
 #Stats
 stat.net_weight.heaviestFishCaught=Heaviest Fish Caught
 stat.net_weight.totalFishWeight=Total Weight of Fish Caught
