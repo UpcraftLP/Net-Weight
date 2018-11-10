@@ -1,9 +1,11 @@
 {
     "homepage": "https://minecraft.curseforge.com/projects/306170",
     "promos": {
-        "1.12.2-latest": "1.0.0"
+        "1.12.2-latest": "1.1.0",
+        "1.12.2-recommended": "1.1.0"
     },
     "1.12.2": {
-        "1.0.0": "* first build"
+        "1.1.0": "- format tooltip to use proper units for larger values\n- added statistic for heaviest fish caught\n- added statistic for total weight of fish caught",
+        "1.0.0": "- first build"
     }
 }
