@@ -15,8 +15,8 @@ public class FishHelper {
     public static final int DEFAULT_WEIGHT = 250;
     private static final Set<Item> VALID_FISHES = new HashSet<>();
 
-    public static boolean isItemValidFish(ItemStack stack) {
-        return VALID_FISHES.contains(stack.getItem());
+    public static boolean isItemValidFish(ItemStack stack) { //TODO metadata? nbt?
+        return !stack.isEmpty() && VALID_FISHES.contains(stack.getItem()); //just in case somebody puts "minecraft:air" in the config :P
     }
 
     public static void syncConfigValues() {

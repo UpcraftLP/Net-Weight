@@ -1,8 +1,11 @@
 package com.github.upcraftlp.netweight;
 
 import com.github.upcraftlp.glasspane.util.ModUpdateHandler;
+import com.github.upcraftlp.netweight.override.block.tileentity.TileEntityFurnaceNew;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.*;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.logging.log4j.*;
 
 import static com.github.upcraftlp.netweight.NetWeight.*;
@@ -26,7 +29,7 @@ public class NetWeight {
     //Meta Information
     public static final String MODNAME = "Net Weight";
     public static final String MODID = "net_weight";
-    public static final String DEPENDENCIES = "after:glasspane;required-after:forge";
+    public static final String DEPENDENCIES = "required-after:glasspane;required-after:forge";
     public static final String UPDATE_JSON = "@UPDATE_JSON@";
 
     public static final String FINGERPRINT_KEY = "@FINGERPRINTKEY@";
@@ -39,7 +42,8 @@ public class NetWeight {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        if(Loader.isModLoaded("glasspane")) ModUpdateHandler.registerMod(MODID);
+        ModUpdateHandler.registerMod(MODID);
         FishStats.registerStats();
+        GameRegistry.registerTileEntity(TileEntityFurnaceNew.class, new ResourceLocation("minecraft", "furnace"));
     }
 }

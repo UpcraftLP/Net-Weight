@@ -4,11 +4,9 @@ import com.github.upcraftlp.glasspane.api.registry.AutoRegistry;
 import com.github.upcraftlp.netweight.override.block.BlockFurnaceNew;
 import com.github.upcraftlp.netweight.override.item.ItemFishFoodNew;
 import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraft.item.*;
 
-@SuppressWarnings("unused")
-@GameRegistry.ObjectHolder("minecraft")
+@SuppressWarnings({"ConstantConditions", "WeakerAccess", "unused"})
 @AutoRegistry("minecraft") //intentionally overriding vanilla stuff here
 public class NetWeightMCItems {
 
@@ -17,4 +15,6 @@ public class NetWeightMCItems {
 
     public static final Block FURNACE = new BlockFurnaceNew(false);
     public static final Block LIT_FURNACE = new BlockFurnaceNew(true);
+
+    public static final Item FURNACE_ITEM = new ItemBlock(FURNACE).setRegistryName(FURNACE.getRegistryName());
 }
