@@ -1,13 +1,14 @@
 package com.github.upcraftlp.netweight.init;
 
 import com.github.upcraftlp.glasspane.api.registry.AutoRegistry;
+import com.github.upcraftlp.netweight.NetWeight;
 import com.github.upcraftlp.netweight.override.block.BlockFurnaceNew;
 import com.github.upcraftlp.netweight.override.item.ItemFishFoodNew;
 import net.minecraft.block.Block;
 import net.minecraft.item.*;
 
 @SuppressWarnings({"ConstantConditions", "WeakerAccess", "unused"})
-@AutoRegistry("minecraft") //intentionally overriding vanilla stuff here
+@AutoRegistry(NetWeight.MODID) //intentionally overriding vanilla stuff here
 public class NetWeightMCItems {
 
     public static final Item FISH = new ItemFishFoodNew(false);

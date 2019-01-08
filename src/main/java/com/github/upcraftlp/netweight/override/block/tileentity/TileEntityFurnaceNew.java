@@ -42,47 +42,4 @@ public class TileEntityFurnaceNew extends TileEntityFurnace {
             inputStack.shrink(1);
         }
     }
-
-
-
-    @Override
-    public boolean canSmelt()
-    {
-        if (this.getStackInSlot(0).isEmpty())
-        {
-            return false;
-        }
-        else
-        {
-            ItemStack resultStack = FurnaceRecipes.instance().getSmeltingResult(this.getStackInSlot(0));
-
-            if (resultStack.isEmpty())
-            {
-                return false;
-            }
-            else
-            {
-                ItemStack currentOutputStack = this.getStackInSlot(2);
-                if (currentOutputStack.isEmpty())
-                {
-                    return true;
-                }
-                else if(FishHelper.isItemValidFish(this.getStackInSlot(0))) {
-                    return false;
-                }
-                else if (!currentOutputStack.isItemEqual(resultStack))
-                {
-                    return false;
-                }
-                else if (currentOutputStack.getCount() + resultStack.getCount() <= this.getInventoryStackLimit() && currentOutputStack.getCount() + resultStack.getCount() <= currentOutputStack.getMaxStackSize())  // Forge fix: make furnace respect stack sizes in furnace recipes
-                {
-                    return true;
-                }
-                else
-                {
-                    return currentOutputStack.getCount() + resultStack.getCount() <= resultStack.getMaxStackSize(); // Forge fix: make furnace respect stack sizes in furnace recipes
-                }
-            }
-        }
-    }
 }

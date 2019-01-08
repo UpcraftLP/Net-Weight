@@ -13,7 +13,7 @@ public class BlockFurnaceNew extends BlockFurnace implements IHasItemBlock {
         super(isBurning);
         this.setHardness(3.5F);
         this.setSoundType(SoundType.STONE);
-        this.setRegistryName(isBurning ? "lit_furnace" : "furnace");
+        this.setRegistryName("minecraft", isBurning ? "lit_furnace" : "furnace");
         this.setTranslationKey("furnace");
         this.setCreativeTab(CreativeTabs.DECORATIONS);
         if(isBurning) this.setLightLevel(0.875F);

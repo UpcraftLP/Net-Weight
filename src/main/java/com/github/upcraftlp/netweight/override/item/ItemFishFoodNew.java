@@ -1,7 +1,7 @@
 package com.github.upcraftlp.netweight.override.item;
 
 import com.github.upcraftlp.netweight.NetWeight;
-import com.github.upcraftlp.netweight.handler.*;
+import com.github.upcraftlp.netweight.handler.FishHelper;
 import net.minecraft.item.*;
 import net.minecraftforge.common.util.Constants;
 
@@ -12,7 +12,7 @@ public class ItemFishFoodNew extends ItemFishFood {
     public ItemFishFoodNew(boolean cooked) {
         super(cooked);
         this.setTranslationKey("fish");
-        this.setRegistryName(cooked ? "cooked_fish" : "fish");
+        this.setRegistryName("minecraft", cooked ? "cooked_fish" : "fish");
         this.setHasSubtypes(true);
         this.setMaxStackSize(1);
     }
@@ -24,13 +24,13 @@ public class ItemFishFoodNew extends ItemFishFood {
     }
 
     @Override
-    public float getSaturationModifier(ItemStack stack) {
-        return super.getSaturationModifier(stack) * this.getWeightModifier(stack);
+    public int getHealAmount(ItemStack stack) {
+        return Math.round(super.getHealAmount(stack) * this.getWeightModifier(stack));
     }
 
     @Override
-    public int getHealAmount(ItemStack stack) {
-        return Math.round(super.getHealAmount(stack) * this.getWeightModifier(stack));
+    public float getSaturationModifier(ItemStack stack) {
+        return super.getSaturationModifier(stack) * this.getWeightModifier(stack);
     }
 
     @SuppressWarnings({"ConstantConditions", "WeakerAccess"})
