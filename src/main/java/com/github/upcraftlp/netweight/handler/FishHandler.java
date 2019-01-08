@@ -17,8 +17,6 @@ import java.util.function.Predicate;
 @Mod.EventBusSubscriber(modid = NetWeight.MODID)
 public class FishHandler {
 
-    public static final String KEY_FISH_WEIGHT = "FishWeight";
-
     @SubscribeEvent
     public static void onItemFished(ItemFishedEvent event) {
         event.getDrops().forEach(stack -> {
@@ -29,7 +27,7 @@ public class FishHandler {
                     double multiplier = 0.5D;
                     if(luck != null) multiplier += luck.getAmplifier() * 0.5D;
                     int weight = (int) ((Math.abs(event.getEntityPlayer().getRNG().nextGaussian() * multiplier) * 1000) + 35);
-                    stack.getTagCompound().setInteger(KEY_FISH_WEIGHT, weight);
+                    stack.getTagCompound().setInteger(FishHelper.NBT_KEY_FISH_WEIGHT, weight);
                     int previous = ((EntityPlayerMP) event.getEntityPlayer()).getStatFile().readStat(FishStats.HEAVIEST_FISH_CAUGHT);
                     if(previous < weight) {
                         event.getEntityPlayer().addStat(FishStats.HEAVIEST_FISH_CAUGHT, weight - previous);

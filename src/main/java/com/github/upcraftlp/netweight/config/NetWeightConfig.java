@@ -1,13 +1,14 @@
 package com.github.upcraftlp.netweight.config;
 
 import com.github.upcraftlp.netweight.NetWeight;
+import com.github.upcraftlp.netweight.handler.FishHelper;
 import net.minecraftforge.common.config.*;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Config.LangKey("config.net_weight.general.title")
-@Config(modid = NetWeight.MODID, name= "glasspanemods/NetWeight") //--> /config/glasspanemods/NetWEight.cfg
+@Config(modid = NetWeight.MODID, name= "glasspanemods/NetWeight") //--> /config/glasspanemods/NetWeight.cfg
 public class NetWeightConfig {
 
     @Config.RequiresMcRestart
@@ -24,6 +25,7 @@ public class NetWeightConfig {
         public static void onConfigChanged(ConfigChangedEvent event) {
             if(NetWeight.MODID.equals(event.getModID())) {
                 ConfigManager.sync(event.getModID(), Config.Type.INSTANCE);
+                FishHelper.syncConfigValues();
             }
         }
     }
