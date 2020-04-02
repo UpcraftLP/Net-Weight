@@ -1,0 +1,41 @@
+{
+    "schemaVersion": 1,
+    "id": "net_weight",
+    "name": "Net Weight",
+    "version": "$version",
+    "environment": "*",
+    "icon": "assets/net_weight/icon.png",
+    "depends": {
+        "fabric": "*",
+        "mesh": "*"
+    },
+    "custom": {
+        "mesh:registry": [
+
+        ]
+    },
+    "entrypoints": {
+        "main": [
+            "com.github.upcraftlp.netweight.NetWeight"
+        ],
+        "client": [
+
+        ],
+        "mesh:registry": [
+
+        ]
+    },
+    "authors": [
+        {
+            "name": "UpcraftLP",
+            "contact": {
+                "homepage": "https://twitter.com/UpcraftLP",
+                "twitter": "https://twitter.com/UpcraftLP"
+            }
+        }
+    ],
+    "description": "A complete fishing overhaul",
+    "mixins": [
+        "mixins.net_weight.json"
+    ]
+}
