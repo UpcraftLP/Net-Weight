@@ -1,0 +1,12 @@
+{
+    "status.net_weight.fishing_fail_no_bait": "You need bait to cast your rod",
+
+    "toast.net_weight.new_top_weight": "New Top Weight!",
+
+    "format.net_weight.weight_tons": "%s t",
+    "format.net_weight.weight_kilos": "%s kg",
+    "format.net_weight.weight_grams": "%s g",
+
+    "stat.net_weight.heaviest_fish_caught": "Heaviest Fish Caught",
+    "stat.net_weight.total_fish_weight": "Total Weight of Fish Caught"
+}

@@ -19,10 +19,10 @@
             "com.github.upcraftlp.netweight.NetWeight"
         ],
         "client": [
-
+            "com.github.upcraftlp.netweight.client.NetWeightClient"
         ],
         "mesh:registry": [
-
+            "com.github.upcraftlp.netweight.init.NwStats"
         ]
     },
     "authors": [

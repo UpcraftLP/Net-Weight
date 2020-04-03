@@ -6,6 +6,7 @@ import net.minecraft.util.StringIdentifiable;
 
 public enum FishSources implements StringIdentifiable {
     FRESH_WATER("fresh_water"), //river, lake
+    LAVA("lava"),
     SALT_WATER("salt_water"), //ocean
     DIRTY_WATER("dirty_water"); //swamp
 

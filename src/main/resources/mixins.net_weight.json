@@ -4,6 +4,9 @@
     "package": "com.github.upcraftlp.netweight.mixin",
     "compatibilityLevel": "JAVA_8",
     "mixins": [
+        "common.FishingBobberMixin",
+        "common.FishingRodItemMixin",
+        "common.LootContextTypesMixin"
     ],
     "client": [
     ],

@@ -10,4 +10,8 @@ public class NWTags {
 
     public static final Tag<Item> FISHING_BAITS = TagRegistry.item(new Identifier(NetWeight.MODID, "fishing_baits"));
     public static final Tag<Item> FISHING_RODS = TagRegistry.item(new Identifier(NetWeight.MODID, "fishing_rods"));
+
+    public static void init() {
+        NetWeight.logger.trace("registering tags...");
+    }
 }
