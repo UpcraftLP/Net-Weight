@@ -31,9 +31,13 @@ import java.util.List;
 @Mixin(FishingBobberEntity.class)
 public abstract class FishingBobberMixin implements FishingBobberData {
 
-    @Shadow @Nullable public abstract PlayerEntity getOwner();
+    @Shadow
+    @Nullable
+    public abstract PlayerEntity getOwner();
 
-    @Shadow @Final private PlayerEntity owner;
+    @Shadow
+    @Final
+    private PlayerEntity owner;
     @Unique
     private ItemStack bait = ItemStack.EMPTY;
 
@@ -55,25 +59,24 @@ public abstract class FishingBobberMixin implements FishingBobberData {
         }
     }
 
-    @Inject(method = "use", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/ItemEntity;<init>(Lnet/minecraft/world/World;DDDLnet/minecraft/item/ItemStack;)V"), locals = LocalCapture.PRINT)
+    @Inject(method = "use", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/ItemEntity;<init>(Lnet/minecraft/world/World;DDDLnet/minecraft/item/ItemStack;)V"), locals = LocalCapture.CAPTURE_FAILHARD)
     private void onGenerateFishedItem(ItemStack usedItem, CallbackInfoReturnable<Integer> cir, int i, LootContext.Builder builder, LootTable lootTable, List<ItemStack> drops, Iterator<ItemStack> iterator, ItemStack itemStack) {
         if(this.getOwner() instanceof ServerPlayerEntity) {
             CompoundTag tag = itemStack.getTag();
             if(tag != null && tag.contains(NetWeight.MODID, NbtType.COMPOUND)) {
                 ServerPlayerEntity player = (ServerPlayerEntity) this.getOwner();
-                    int currentWeight = tag.getCompound(NetWeight.MODID).getInt(NwHooks.NBT_KEY_FISH_WEIGHT);
-                    if(currentWeight > 0) {
-                        player.increaseStat(Stats.CUSTOM.getOrCreateStat(NwStats.TOTAL_FISH_WEIGHT, NwStatFormatters.WEIGHT), currentWeight);
-                        int heaviestFish = player.getStatHandler().getStat(Stats.CUSTOM, NwStats.HEAVIEST_FISH_CAUGHT);
-                        if(heaviestFish < currentWeight) {
-                            player.increaseStat(Stats.CUSTOM.getOrCreateStat(NwStats.HEAVIEST_FISH_CAUGHT, NwStatFormatters.WEIGHT), currentWeight - heaviestFish);
+                int currentWeight = tag.getCompound(NetWeight.MODID).getInt(NwHooks.NBT_KEY_FISH_WEIGHT);
+                if(currentWeight > 0) {
+                    player.increaseStat(Stats.CUSTOM.getOrCreateStat(NwStats.TOTAL_FISH_WEIGHT, NwStatFormatters.WEIGHT), currentWeight);
+                    int heaviestFish = player.getStatHandler().getStat(Stats.CUSTOM, NwStats.HEAVIEST_FISH_CAUGHT);
+                    if(heaviestFish < currentWeight) {
+                        player.increaseStat(Stats.CUSTOM.getOrCreateStat(NwStats.HEAVIEST_FISH_CAUGHT, NwStatFormatters.WEIGHT), currentWeight - heaviestFish);
+                        if(currentWeight > NwHooks.DEFAULT_FISH_WEIGHT) {
                             S2CTopWeightPacket.sendTo(player, currentWeight);
                         }
                     }
-
-
+                }
             }
         }
-
     }
 }

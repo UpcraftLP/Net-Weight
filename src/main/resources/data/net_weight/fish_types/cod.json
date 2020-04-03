@@ -1,0 +1,23 @@
+{
+    "baits": [
+        "#net_weight:fishing_baits"
+    ],
+    "environment": {
+        "height": {
+            "min": 60,
+            "max": 100
+        },
+        "rain_required": false,
+        "temperature": {
+            "min": 0.5,
+            "max": 1.0
+        }
+    },
+    "fish": {
+        "item": "minecraft:cod"
+    },
+    "weight": {
+        "min": 1000,
+        "max": 100000
+    }
+}
