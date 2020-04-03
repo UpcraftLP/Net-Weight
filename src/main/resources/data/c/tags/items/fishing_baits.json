@@ -1,7 +1,15 @@
 {
     "replace": false,
     "values": [
+        "minecraft:bread",
+        "minecraft:carrot",
+        "minecraft:cocoa_beans",
+        "minecraft:melon_seeds",
+        "minecraft:nether_wart",
         "minecraft:potato",
-        "minecraft:seeds"
+        "minecraft:pumpkin_seeds",
+        "minecraft:spider_eye",
+        "minecraft:sweet_berries",
+        "minecraft:wheat_seeds"
     ]
 }

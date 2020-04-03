@@ -17,12 +17,8 @@
           "name": "minecraft:gameplay/fishing/treasure"
         },
         {
-          "type": "net_weight:fish",
-          "weight": 125
-        },
-        {
           "type": "net_weight:fishing_loot_table",
-          "weight": 125,
+          "weight": 135,
           "quality": -1
         }
       ]
