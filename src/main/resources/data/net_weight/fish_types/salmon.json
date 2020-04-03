@@ -14,10 +14,10 @@
         }
     },
     "fish": {
-        "item": "minecraft:cod"
+        "item": "minecraft:salmon"
     },
     "weight": {
         "min": 1200,
-        "max": 14000
+        "max": 16000
     }
 }
