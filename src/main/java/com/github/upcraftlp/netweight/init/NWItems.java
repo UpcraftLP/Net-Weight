@@ -9,5 +9,6 @@ import net.minecraft.item.Item;
 @AutoRegistry(value = Item.class, modid = NetWeight.MODID, registry = "item")
 public class NWItems implements AutoRegistryHook {
 
-    public static final Item BAIT = new IngredientItem();
+    public static final Item TROUT = new IngredientItem();
+    public static final Item EEL = new IngredientItem();
 }

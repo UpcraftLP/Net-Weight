@@ -22,6 +22,7 @@
             "com.github.upcraftlp.netweight.client.NetWeightClient"
         ],
         "mesh:registry": [
+            "com.github.upcraftlp.netweight.init.NWItems",
             "com.github.upcraftlp.netweight.init.NwStats"
         ]
     },
