@@ -3,7 +3,6 @@ package com.github.upcraftlp.netweight.util;
 import com.github.glasspane.mesh.util.JsonUtil;
 import com.github.upcraftlp.netweight.NetWeight;
 import com.github.upcraftlp.netweight.api.FishType;
-import com.github.upcraftlp.netweight.init.NWItems;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 import com.google.common.collect.ImmutableSet;
@@ -68,7 +67,6 @@ public class FishingDataManager extends JsonDataLoader implements IdentifiableRe
                     validItems.add(Registry.ITEM.getOrEmpty(itemName).orElseThrow(() -> new JsonSyntaxException("Unknown item '" + itemName + "'")));
                 }
             });
-            validItems.add(NWItems.CREATIVE_BAIT); //ensure every fish type accepts our special item
             Set<Item> validBaits = validItems.build();
             ItemStack fish = ShapedRecipe.getItemStack(JsonHelper.getObject(json, "fish"));
             JsonObject weight = JsonHelper.getObject(json, "weight");

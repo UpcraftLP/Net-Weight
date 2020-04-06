@@ -1,6 +1,7 @@
 package com.github.upcraftlp.netweight.loot;
 
 import com.github.glasspane.mesh.util.CollectionHelper;
+import com.github.upcraftlp.netweight.NetWeight;
 import com.github.upcraftlp.netweight.api.FishType;
 import com.github.upcraftlp.netweight.init.NWItems;
 import com.github.upcraftlp.netweight.util.FishingDataManager;
@@ -17,6 +18,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 import java.util.Objects;
@@ -38,12 +40,13 @@ public class NWFishingLootEntry extends LeafEntry {
         boolean thundering = world.isThundering();
         Biome biome = world.getBiome(pos);
         List<FishType> types = FishingDataManager.FISH_TYPES.values().stream()
-                .filter(fishType -> fishType.isBait(bait))
+                .filter(fishType -> fishType.isBait(bait) || bait.getItem() == NWItems.CREATIVE_BAIT)
                 .filter(fishType -> raining || !fishType.requiresRain())
                 .filter(fishType -> thundering || !fishType.requiresThunder())
                 .filter(fishType -> pos.getY() >= fishType.getMinHeight() && pos.getY() <= fishType.getMaxHeight())
                 .filter(fishType -> biome.getTemperature() >= fishType.getMinTemperature() && biome.getTemperature() <= fishType.getMaxTemperature())
                 .collect(Collectors.toList());
+        NetWeight.logger.trace("Fishing! temp: {}, at: {}, fishes: {}", biome.getTemperature(), pos, StringUtils.join(types, ","));
         if(!types.isEmpty()) {
             FishType result = CollectionHelper.getRandomElement(types, context.getRandom());
             ItemStack fish = result.getFish().copy();

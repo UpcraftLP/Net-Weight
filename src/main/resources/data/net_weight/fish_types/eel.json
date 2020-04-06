@@ -14,7 +14,7 @@
         "rain_required": false,
         "temperature": {
             "min": -2.0,
-            "max": 0.49
+            "max": 0.55
         },
         "thunder_required": false
     },

@@ -1,6 +1,8 @@
 package com.github.upcraftlp.netweight.api;
 
+import com.github.upcraftlp.netweight.util.FishingDataManager;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Identifier;
 
 import java.util.function.Predicate;
 
@@ -68,5 +70,11 @@ public class FishType {
 
     public boolean isBait(ItemStack stack) {
         return !stack.isEmpty() && isBaitFunction.test(stack);
+    }
+
+    @Override
+    public String toString() {
+        Identifier name = FishingDataManager.FISH_TYPES.inverse().get(this);
+        return String.format("FishType{%s}", name != null ? name.toString() : "unregistered");
     }
 }
