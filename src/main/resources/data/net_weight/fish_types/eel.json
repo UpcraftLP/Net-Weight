@@ -7,12 +7,12 @@
             "min": 60,
             "max": 100
         },
-        "rain_required": true,
+        "rain_required": false,
         "temperature": {
-            "min": 0.5,
-            "max": 1.0
+            "min": 0.0,
+            "max": 0.49
         },
-        "thunder_required": true
+        "thunder_required": false
     },
     "fish": {
         "item": "minecraft:cod"
