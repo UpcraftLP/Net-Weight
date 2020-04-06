@@ -1,6 +1,9 @@
 {
     "baits": [
-        "#net_weight:fishing_baits"
+        "minecraft:cocoa_beans",
+        "minecraft:melon_seeds",
+        "minecraft:pumpkin_seeds",
+        "minecraft:sweet_berries"
     ],
     "environment": {
         "height": {
@@ -18,7 +21,7 @@
         "item": "minecraft:salmon"
     },
     "weight": {
-        "min": 1200,
+        "min": 1000,
         "max": 16000
     }
 }

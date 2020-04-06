@@ -2,31 +2,26 @@
     "baits": [
         "minecraft:bread",
         "minecraft:carrot",
-        "minecraft:melon_seeds",
-        "minecraft:nether_wart",
         "minecraft:potato",
-        "minecraft:pumpkin_seeds",
-        "minecraft:spider_eye",
-        "minecraft:sweet_berries",
         "minecraft:wheat_seeds"
     ],
     "environment": {
         "height": {
-            "min": 30,
-            "max": 120
+            "min": 50,
+            "max": 90
         },
         "rain_required": false,
         "temperature": {
             "min": 0.49,
-            "max": 1.0
+            "max": 0.75
         },
         "thunder_required": false
     },
     "fish": {
-        "item": "minecraft:cod"
+        "item": "net_weight:trout"
     },
     "weight": {
-        "min": 1200,
-        "max": 14000
+        "min": 800,
+        "max": 13000
     }
 }
