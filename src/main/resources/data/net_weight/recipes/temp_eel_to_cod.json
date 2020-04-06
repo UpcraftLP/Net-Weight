@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "group": "cod",
+    "ingredients": [
+        {
+            "item": "net_weight:eel"
+        }
+    ],
+    "result": {
+        "item": "minecraft:cod"
+    }
+}

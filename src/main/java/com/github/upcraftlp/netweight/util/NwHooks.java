@@ -1,6 +1,7 @@
 package com.github.upcraftlp.netweight.util;
 
 import com.github.upcraftlp.netweight.NetWeight;
+import com.github.upcraftlp.netweight.init.NWItems;
 import net.fabricmc.fabric.api.util.NbtType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -21,7 +22,7 @@ public class NwHooks {
     public static final LootContextParameter<ItemStack> LOOT_CONTEXT_BAIT = new LootContextParameter<>(new Identifier(NetWeight.MODID, "bait"));
 
     public static ItemStack getDefaultBait() {
-        return new ItemStack(Items.WHEAT_SEEDS);
+        return new ItemStack(NWItems.CREATIVE_BAIT);
     }
 
     public static ItemStack findBaitType(PlayerEntity player, ItemStack fishingRod) {

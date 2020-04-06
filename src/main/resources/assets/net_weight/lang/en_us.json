@@ -8,5 +8,9 @@
     "format.net_weight.weight_grams": "%s g",
 
     "stat.net_weight.heaviest_fish_caught": "Heaviest Fish Caught",
-    "stat.net_weight.total_fish_weight": "Total Weight of Fish Caught"
+    "stat.net_weight.total_fish_weight": "Total Weight of Fish Caught",
+
+    "item.net_weight.creative_bait": "Creative Bait",
+    "item.net_weight.eel": "Eel",
+    "item.net_weight.trout": "Trout"
 }
