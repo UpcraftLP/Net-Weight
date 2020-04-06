@@ -7,9 +7,35 @@ import java.util.function.Predicate;
 public class FishType {
 
     private final Predicate<ItemStack> isBaitFunction;
+    private final boolean requiresThunder;
+    private final boolean requiresRain;
+    private final ItemStack fish;
+    private final int minHeight;
+    private final int maxHeight;
+    private final float minTemperature;
+    private final float maxTemperature;
+    private final int minWeight;
+    private final int maxWeight;
+
+    public FishType(Predicate<ItemStack> isBaitFunction, boolean requiresRain, boolean requiresThunder, ItemStack fish, int minHeight, int maxHeight, float minTemperature, float maxTemperature, int minWeight, int maxWeight) {
+        this.isBaitFunction = isBaitFunction;
+        this.requiresRain = requiresRain;
+        this.requiresThunder = requiresThunder;
+        this.fish = fish;
+        this.minHeight = minHeight;
+        this.maxHeight = maxHeight;
+        this.minTemperature = minTemperature;
+        this.maxTemperature = maxTemperature;
+        this.minWeight = minWeight;
+        this.maxWeight = maxWeight;
+    }
 
     public boolean requiresRain() {
         return requiresRain;
+    }
+
+    public boolean requiresThunder() {
+        return requiresThunder;
     }
 
     public ItemStack getFish() {
@@ -40,30 +66,7 @@ public class FishType {
         return maxWeight;
     }
 
-    private final boolean requiresRain;
-    private final ItemStack fish;
-    private final int minHeight;
-    private final int maxHeight;
-    private final float minTemperature;
-    private final float maxTemperature;
-    private final int minWeight;
-    private final int maxWeight;
-
-
-    public FishType(Predicate<ItemStack> isBaitFunction, boolean requiresRain, ItemStack fish, int minHeight, int maxHeight, float minTemperature, float maxTemperature, int minWeight, int maxWeight) {
-        this.isBaitFunction = isBaitFunction;
-        this.requiresRain = requiresRain;
-        this.fish = fish;
-        this.minHeight = minHeight;
-        this.maxHeight = maxHeight;
-        this.minTemperature = minTemperature;
-        this.maxTemperature = maxTemperature;
-        this.minWeight = minWeight;
-        this.maxWeight = maxWeight;
-    }
-
     public boolean isBait(ItemStack stack) {
         return !stack.isEmpty() && isBaitFunction.test(stack);
     }
-
 }

@@ -7,18 +7,18 @@
             "min": 60,
             "max": 100
         },
-        "rain_required": false,
+        "rain_required": true,
         "temperature": {
             "min": 0.5,
             "max": 1.0
         },
-        "thunder_required": false
+        "thunder_required": true
     },
     "fish": {
-        "item": "minecraft:salmon"
+        "item": "minecraft:cod"
     },
     "weight": {
         "min": 1200,
-        "max": 16000
+        "max": 14000
     }
 }

@@ -3,6 +3,7 @@ package com.github.upcraftlp.netweight.util;
 import com.github.glasspane.mesh.util.JsonUtil;
 import com.github.upcraftlp.netweight.NetWeight;
 import com.github.upcraftlp.netweight.api.FishType;
+import com.github.upcraftlp.netweight.init.NWItems;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 import com.google.common.collect.ImmutableSet;
@@ -52,7 +53,6 @@ public class FishingDataManager extends JsonDataLoader implements IdentifiableRe
     protected void apply(Map<Identifier, JsonObject> map, ResourceManager manager, Profiler profiler) {
         NetWeight.logger.debug("reloading fish types");
         FISH_TYPES.clear();
-        //TODO generate fish types from data and populate environment entries
         map.forEach((identifier, json) -> {
             JsonArray baits = JsonHelper.getArray(json, "baits");
             ImmutableSet.Builder<Item> validItems = ImmutableSet.builder();
@@ -68,6 +68,7 @@ public class FishingDataManager extends JsonDataLoader implements IdentifiableRe
                     validItems.add(Registry.ITEM.getOrEmpty(itemName).orElseThrow(() -> new JsonSyntaxException("Unknown item '" + itemName + "'")));
                 }
             });
+            validItems.add(NWItems.CREATIVE_BAIT); //ensure every fish type accepts our special item
             Set<Item> validBaits = validItems.build();
             ItemStack fish = ShapedRecipe.getItemStack(JsonHelper.getObject(json, "fish"));
             JsonObject weight = JsonHelper.getObject(json, "weight");
@@ -75,13 +76,14 @@ public class FishingDataManager extends JsonDataLoader implements IdentifiableRe
             int maxWeight = JsonHelper.getInt(weight, "max");
             JsonObject environment = JsonHelper.getObject(json, "environment");
             boolean rain = JsonHelper.getBoolean(environment, "rain_required");
+            boolean thunder = JsonHelper.getBoolean(environment, "thunder_required");
             JsonObject temperature = JsonHelper.getObject(environment, "temperature");
             float minTemp = JsonHelper.getInt(temperature, "min");
             float maxTemp = JsonHelper.getInt(temperature, "max");
             JsonObject height = JsonHelper.getObject(environment, "height");
             int minHeight = JsonHelper.getInt(height, "min");
             int maxHeight = JsonHelper.getInt(height, "max");
-            FISH_TYPES.put(identifier, new FishType(stack -> validBaits.contains(stack.getItem()), rain, fish, minHeight, maxHeight, minTemp, maxTemp, minWeight, maxWeight));
+            FISH_TYPES.put(identifier, new FishType(stack -> validBaits.contains(stack.getItem()), rain, thunder, fish, minHeight, maxHeight, minTemp, maxTemp, minWeight, maxWeight));
             NetWeight.logger.trace("registered fish type {}", identifier);
         });
     }
