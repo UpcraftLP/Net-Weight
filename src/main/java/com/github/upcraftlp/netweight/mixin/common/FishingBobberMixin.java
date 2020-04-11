@@ -68,7 +68,7 @@ public abstract class FishingBobberMixin implements FishingBobberData {
                 int currentWeight = tag.getCompound(NetWeight.MODID).getInt(NwHooks.NBT_KEY_FISH_WEIGHT);
                 if(currentWeight > 0) {
                     player.increaseStat(Stats.CUSTOM.getOrCreateStat(NwStats.TOTAL_FISH_WEIGHT, NwStatFormatters.WEIGHT), currentWeight);
-                    int heaviestFish = player.getStatHandler().getStat(Stats.CUSTOM, NwStats.HEAVIEST_FISH_CAUGHT);
+                    int heaviestFish = player.getStatHandler().getStat(Stats.CUSTOM.getOrCreateStat(NwStats.HEAVIEST_FISH_CAUGHT, NwStatFormatters.WEIGHT));
                     if(heaviestFish < currentWeight) {
                         player.increaseStat(Stats.CUSTOM.getOrCreateStat(NwStats.HEAVIEST_FISH_CAUGHT, NwStatFormatters.WEIGHT), currentWeight - heaviestFish);
                         if(currentWeight > NwHooks.DEFAULT_FISH_WEIGHT) {
